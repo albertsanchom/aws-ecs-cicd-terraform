@@ -19,6 +19,9 @@ jobs:
   deploy-iac:
     name: Deploy IaC
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     environment: ${{ github.event.inputs.environment }}
     defaults:
       run:
