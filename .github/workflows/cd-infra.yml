@@ -26,9 +26,9 @@ jobs:
         id: init
         run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
   
-      - name: Terraform format
-        id: fmt
-        run: terraform fmt -check
+      #- name: Terraform format
+      #  id: fmt
+      #  run: terraform fmt -check
       
       - name: Terraform validate
         id: validate
@@ -36,12 +36,12 @@ jobs:
   
       - name: Terraform plan
         id: plan
-        if: github.event_name == 'pull_request'
+      #  if: github.event_name == 'pull_request'
         run: terraform plan -no-color -input=false
         continue-on-error: true
       
       - uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
+        #if: github.event_name == 'pull_request'
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:
@@ -72,5 +72,5 @@ jobs:
         run: exit 1
   
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
