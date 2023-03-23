@@ -1,10 +1,10 @@
-on:
-  push:
-    branches: [master]
-    paths: [ 'petclinic/**' ]
-  pull_request:
-    branches: [master]
-    paths: [ 'petclinic/**' ]
+on: [ workflow_dispatch ]
+ # push:
+ #   branches: [master]
+ #   paths: [ 'petclinic/**' ]
+ # pull_request:
+ #   branches: [master]
+ #   paths: [ 'petclinic/**' ]
 
 jobs:
   build:
