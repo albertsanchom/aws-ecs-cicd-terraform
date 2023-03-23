@@ -10,6 +10,10 @@ jobs:
   policy-check:
     name: "Scan IaC"
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./path/to/dir
+        
     steps:
       - name: Checkout Master
         uses: actions/checkout@v3
