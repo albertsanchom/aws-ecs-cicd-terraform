@@ -1,4 +1,13 @@
 on: [ workflow_dispatch ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Select the environment
+        required: true
+        options:
+          - Demo
+      
  # push:
  #   branches: [master]
  #   paths: [ 'terraform/**' ]
@@ -7,9 +16,10 @@ on: [ workflow_dispatch ]
  #   paths: [ 'terraform/**' ]
 
 jobs:
-  build:
-    name: IaC Deployment
+  deploy-iac:
+    name: Deploy IaC
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
     defaults:
       run:
         working-directory: ./terraform
