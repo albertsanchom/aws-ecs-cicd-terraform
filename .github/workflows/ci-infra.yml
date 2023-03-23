@@ -16,8 +16,6 @@ jobs:
 
       - name: Checkov GitHub Action
         uses: bridgecrewio/checkov-action@v12
-        permissions:
-          contents: read
         with:
           directory: terraform
           # This will add both a CLI output to the console and create a results.sarif file
