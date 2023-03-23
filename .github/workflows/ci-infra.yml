@@ -23,9 +23,11 @@ jobs:
         with:
           directory: terraform
           # This will add both a CLI output to the console and create a results.sarif file
-          output_format: cli,sarif
-          output_file_path: console,results.sarif
-        
+          #output_format: cli,sarif
+          #output_file_path: console,results.sarif
+          output_format: cli
+          output_file_path: console        
+
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         
