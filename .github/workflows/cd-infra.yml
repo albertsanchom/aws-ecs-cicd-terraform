@@ -29,6 +29,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        run: echo $aws-access-key-id && echo $aws-secret-access-key
+        env:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Configure AWS Credentials Action For GitHub Actions
         uses: aws-actions/configure-aws-credentials@v1
