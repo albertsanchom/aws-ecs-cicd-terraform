@@ -6,6 +6,8 @@ on:
     branches: [development]
     paths-ignore: [ 'terraform/**' ]
 
+permissions: read-all
+
 jobs:
   policy-check:
     name: "Scan IaC"
