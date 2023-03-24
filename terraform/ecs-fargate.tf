@@ -55,7 +55,7 @@ resource "aws_ecs_task_definition" "task-def" {
             },
             {
                 "name": "spring.datasource.password",
-                "value": "${data.aws_ssm_parameter.dbpassword.value}"
+                "value": "${random_password.master_password.result}"
             },
             {
                 "name": "spring.datasource.initialize",
