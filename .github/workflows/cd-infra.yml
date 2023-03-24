@@ -8,12 +8,12 @@ on:
         options:
           - Demo
       
- # push:
- #   branches: [master]
- #   paths: [ 'terraform/**' ]
- # pull_request:
- #   branches: [master]
- #   paths: [ 'terraform/**' ]
+  push:
+    branches: [master]
+    paths: [ 'terraform/**' ]
+  pull_request:
+    branches: [master]
+    paths: [ 'terraform/**' ]
 
 jobs:
   deploy-iac:
