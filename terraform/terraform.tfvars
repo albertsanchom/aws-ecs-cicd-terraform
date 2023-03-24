@@ -1,6 +1,6 @@
 aws_region="eu-west-1"
-stack="solucions-cloud-automation-test"
-fargate-task-service-role="solucions-cloud-automation-test-role"
+stack="solcloud-automation-test"
+fargate-task-service-role="solcloud-automation-test-role"
 aws_ecr="petclinic"
 aws_profile="default"
 source_repo_name="petclinic"
