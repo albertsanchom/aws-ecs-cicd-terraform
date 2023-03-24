@@ -64,7 +64,7 @@ jobs:
         run: terraform plan -no-color -input=false
         continue-on-error: true
       
-      - name: 
+      - name: Print Terraform plan
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         run: echo "$PLAN"
