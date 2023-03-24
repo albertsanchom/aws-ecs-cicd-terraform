@@ -1,4 +1,4 @@
-on: []
+on:
   # workflow_dispatch:
   #   inputs:
   #     environment:
@@ -11,10 +11,12 @@ on: []
   push:
     branches: [master]
     paths: [ 'terraform/**' ]
-
   pull_request:
     branches: [master]
     paths: [ 'terraform/**' ]
+
+env:
+BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
 
 jobs:
   deploy-iac:
@@ -45,7 +47,8 @@ jobs:
       
       - name: Terraform init
         id: init
-        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
+        run: terraform init
+        # run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
   
       #- name: Terraform format
       #  id: fmt
