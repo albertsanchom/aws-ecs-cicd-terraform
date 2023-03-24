@@ -1,19 +1,22 @@
-on:
+on: []
+  # workflow_dispatch:
+  #   inputs:
+  #     environment:
+  #       type: choice
+  #       description: Select the environment
+  #       required: true
+  #       options:
+  #         - Demo
   workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        description: Select the environment
-        required: true
-        options:
-          - Demo
-      
+    environment: Demo
   push:
     branches: [master]
     paths: [ 'terraform/**' ]
+    environment: Demo
   pull_request:
     branches: [master]
     paths: [ 'terraform/**' ]
+    environment: Demo
 
 jobs:
   deploy-iac:
@@ -22,7 +25,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    environment: ${{ github.event.inputs.environment }}
+    environment: Demo
     defaults:
       run:
         working-directory: ./terraform
