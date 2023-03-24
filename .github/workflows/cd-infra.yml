@@ -8,7 +8,6 @@ on: []
   #       options:
   #         - Demo
   workflow_dispatch:
-    environment: Demo
   push:
     branches: [master]
     paths: [ 'terraform/**' ]
@@ -25,7 +24,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    environment: Demo
+    #environment: Demo
     defaults:
       run:
         working-directory: ./terraform
