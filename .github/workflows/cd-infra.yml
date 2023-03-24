@@ -15,8 +15,8 @@ on:
     branches: [master]
     paths: [ 'terraform/**' ]
 
-env:
-BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
+# env:
+#   BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
 
 jobs:
   deploy-iac:
