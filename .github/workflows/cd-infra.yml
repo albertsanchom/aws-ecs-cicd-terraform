@@ -11,11 +11,10 @@ on: []
   push:
     branches: [master]
     paths: [ 'terraform/**' ]
-    environment: Demo
+
   pull_request:
     branches: [master]
     paths: [ 'terraform/**' ]
-    environment: Demo
 
 jobs:
   deploy-iac:
@@ -24,7 +23,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    #environment: Demo
+    environment: Demo
     defaults:
       run:
         working-directory: ./terraform
